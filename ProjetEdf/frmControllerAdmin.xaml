@@ -1,0 +1,62 @@
+﻿<Window x:Class="ProjetEdf.frmControllerAdmin"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProjetEdf"
+        mc:Ignorable="d"
+        Title="frmControllerAdmin" Height="450" Width="800" Loaded="Window_Loaded">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="40"></RowDefinition>
+            <RowDefinition Height="200"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+            <RowDefinition></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <TextBlock Text="Gestion EDF" FontSize="20" Grid.Row="0" Grid.ColumnSpan="2" VerticalAlignment="Center" HorizontalAlignment="Center" Foreground="Red"></TextBlock>
+        <TextBlock Text="Liste des controleurs" FontSize="20" Grid.Row="1" Foreground="Red"></TextBlock>
+        <TextBlock Text="Liste des clients" FontSize="20" Grid.Row="1" Grid.Column="1" Foreground="Red"></TextBlock>
+        <ListBox x:Name="lstController" SelectionChanged="LstController_SelectionChanged" Grid.Row="2" Grid.Column="0">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="20" Text="{Binding id}"></TextBlock>
+                        <TextBlock Width="120" Text="{Binding nom}"></TextBlock>
+                        <TextBlock Width="100" Text="{Binding prenom}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <ListBox x:Name="lstClient" SelectionChanged="LstClient_SelectionChanged" Grid.Row="2" Grid.Column="1">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel Orientation="Horizontal">
+                        <TextBlock Width="50" Text="{Binding idClient}"></TextBlock>
+                        <TextBlock Width="50" Text="{Binding nomClient}"></TextBlock>
+                        <TextBlock Width="50" Text="{Binding prenomClient}"></TextBlock>
+                        <TextBlock Width="50" Text="{Binding ancienReleveClient}"></TextBlock>
+                        <TextBlock Width="50" Text="{Binding dernierReleveClient}"></TextBlock>
+                        <TextBlock Width="50" Text="{Binding totalClient}"></TextBlock>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+        <TextBlock Text="nom du controller" Grid.Row="3"></TextBlock>
+        <TextBox x:Name="txtNomController" Grid.Row="3" Width="100" Height="20" Margin="105,0,191,0"></TextBox>
+        <TextBlock Text="prenom du controller" Grid.Row="4"></TextBlock>
+        <TextBox x:Name="txtPrenomController" Grid.Row="4" Width="100" Height="20" Margin="120,0,176,10"></TextBox>
+        <Button x:Name="btnInsererController" Content="Inserer un controleur" Grid.Row="5" Click="BtnInsererController_Click"></Button>
+        
+        <TextBlock Text="nom du client" Grid.Row="3" Grid.Column="1"></TextBlock>
+        <TextBox x:Name="txtNomClient" Grid.Row="3" Grid.Column="1" Width="100" Height="20" Margin="105,0,191,0"></TextBox>
+        <TextBlock Text="prenom du client" Grid.Row="4" Grid.Column="1"></TextBlock>
+        <TextBox x:Name="txtPrenomClient" Grid.Row="4" Grid.Column="1" Width="100" Height="20" Margin="120,0,176,10"></TextBox>
+        <Button x:Name="btnInsererClient" Content="Inserer un Client" Grid.Row="5" Grid.Column="1" Click="BtnInsererClient_Click"></Button>
+    </Grid>
+</Window>
